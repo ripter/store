@@ -1,4 +1,4 @@
-.PHONY: all test test.nyan test.only test.blink1 lint docs clean
+.PHONY: all test test.nyan test.only test.blink1 lint docs clean build
 NPM_BIN=$(shell npm bin)
 
 all: test docs
@@ -27,5 +27,7 @@ docs: node_modules/
 
 clean:
 	-rm -r ./node_modules
-	-rm ./package-lock.json
-	-npm cache clean
+	-npm cache verify
+
+build: node_modules/
+	$(NPM_BIN)/webpack

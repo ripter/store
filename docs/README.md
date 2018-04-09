@@ -11,7 +11,7 @@ Once the reducers run, `.onChange` is called with the new state.
 
 * [Store](#Store) : [<code>Store</code>](#Store)
     * [.action(actionObj)](#Store+action) ⇒ <code>Object</code>
-    * [.getState(path, defaultValue)](#Store+getState) ⇒ <code>Object</code>
+    * [.get(path, defaultValue)](#Store+get) ⇒ <code>Object</code>
 
 <a name="Store+action"></a>
 
@@ -26,9 +26,9 @@ Triggers the onChange callbacks with the new state.
 | --- | --- | --- |
 | actionObj | <code>Object</code> | is added to each reducer along with the current state. |
 
-<a name="Store+getState"></a>
+<a name="Store+get"></a>
 
-### store.getState(path, defaultValue) ⇒ <code>Object</code>
+### store.get(path, defaultValue) ⇒ <code>Object</code>
 Returns the value at path.
 If the value doesn't exist, it will return defaultValue or undefined.
 

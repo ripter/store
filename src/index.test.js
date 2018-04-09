@@ -19,13 +19,13 @@ describe('Store', () => {
       type: '🕹',
     });
 
-    const state = store.getState();
+    const state = store.get();
     expect(state.type).to.eql('🕹');
   });
 
-  describe('.getState', () => {
+  describe('.get', () => {
     it('(); returns entire state', () => {
-      const state = store.getState();
+      const state = store.get();
       expect(state).to.eql({
         scene: '🏞',
         board: [
@@ -36,10 +36,10 @@ describe('Store', () => {
     });
 
     it('(path); returns value at path', () => {
-      const state = store.getState('board[1]');
+      const state = store.get('board[1]');
       expect(state.id).to.eql('two');
     });
-  }); // .getState
+  }); // .get
 
   describe('.action()', () => {
     beforeEach(() => {
@@ -56,13 +56,13 @@ describe('Store', () => {
         key: 'type',
         value: '🕹',
       });
-      const state = store.getState();
+      const state = store.get();
       expect(state.type).to.eql('🕹');
     });
 
     it('can trigger another action', (done) => {
       store.onChange = () => {
-        const state = store.getState();
+        const state = store.get();
         expect(state).to.eql({
           type: '🎈',
           scene: '🌄',

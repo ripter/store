@@ -74,7 +74,7 @@ class Store {
    * @param {Object} defaultValue - value to return if there is no value at path.
    * @return {Object}
    */
-  getState(path, defaultValue) {
+  get(path, defaultValue) {
     const { _state } = this;
     if (!path) { return _state; }
     return get(_state, path, defaultValue);
