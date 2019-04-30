@@ -5,14 +5,13 @@ all: build test docs
 node_modules/: package.json
 	npm install
 
-test: lint
-	npx mocha --opts mocha.opts src/\**/*.test.js
+test: lint test.only
 
 test.only: node_modules/
-	npx mocha --opts mocha.opts src/\**/*.test.js
+	npx mocha --opts mocha.opts src/
 
 lint: node_modules/
-	npx eslint test/ src/
+	npx eslint src/
 
 clean:
 	-rm -f package-lock.json
