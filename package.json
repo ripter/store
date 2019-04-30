@@ -21,11 +21,9 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/register": "^7.4.4",
     "expect.js": "^0.3.1",
+    "eslint": "^5.16.0",
     "mocha": "^6.1.4",
     "rollup": "^1.10.1",
     "rollup-plugin-node-resolve": "^4.2.3"
-  },
-  "dependencies": {
-    "eslint": "^5.16.0"
   }
 }
