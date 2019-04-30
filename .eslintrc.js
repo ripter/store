@@ -1,11 +1,16 @@
 module.exports = {
+  extends: 'eslint:recommended',
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module',
+  },
   env: {
     browser: true,
     es6: true,
-    jest: true,
   },
-  parserOptions: {
-    sourceType: 'module',
+  globals: {
+    anime: 'readonly',
+    lighterhtml: 'readonly',
   },
   rules: {
     //
@@ -30,7 +35,7 @@ module.exports = {
     // encourages use of dot notation whenever possible
     // But allow for snakecase for external apis
     'dot-notation': [2, {'allowPattern': '^[a-z]+(_[a-z]+)+$'}],
-    // require the use of === and !== except for checking null/undefined
+    // require the use of === and !== except when checking null/undefined.
     eqeqeq: [2, 'smart'],
     // make sure for-in loops have an if statement
     'guard-for-in': 2,
@@ -48,7 +53,7 @@ module.exports = {
     'no-empty-function': 2,
     // disallow empty destructuring patterns
     'no-empty-pattern': 2,
-    // Allow comparisons to null without a type-checking operator
+    // allow comparisons to null without a type-checking operator
     'no-eq-null': 0,
     // disallow use of eval()
     'no-eval': 2,
@@ -97,8 +102,12 @@ module.exports = {
     // disallow use of octal escape sequences in string literals, such as
     // var foo = 'Copyright \251';
     'no-octal-escape': 2,
-    // Smart param reassign increases readablity.
-    'no-param-reassign': [0, { props: true }],
+    // disallow reassignment of function parameters
+    // disallow parameter object manipulation
+    // 'no-param-reassign': [2, { props: true }],
+    // It is common and acceptable to alter the parameters in a reducer
+    // Instead of ignoring the rule in every reducer, we will turn off the rule
+    'no-param-reassign': 0,
     // disallow usage of __proto__ property
     'no-proto': 2,
     // disallow declaring the same variable more then once
@@ -118,7 +127,7 @@ module.exports = {
     // disallow unmodified conditions of loops
     'no-unmodified-loop-condition': 2,
     // disallow usage of expressions in statement position
-    'no-unused-expressions': ['error', { 'allowTaggedTemplates': true }],
+    'no-unused-expressions': 2,
     // disallow unused labels
     'no-unused-labels': 2,
     // disallow unnecessary .call() and .apply()
@@ -127,8 +136,8 @@ module.exports = {
     'no-useless-concat': 2,
     // disallow unnecessary string escaping
     'no-useless-escape': 2,
-    // allow use of void operator
-    'no-void': 0,
+    // disallow use of void operator
+    'no-void': 2,
     // disallow use of the with statement
     'no-with': 2,
     // require use of the second argument for parseInt()
@@ -187,7 +196,6 @@ module.exports = {
     // unary operators should not have a space.
     'space-unary-ops': 2,
     // require 2 space indentations; switch statements should also be indented
-    indent: 'off',
-    'indent-legacy': ['error', 2, { 'SwitchCase': 1 }],
+    indent: ['error', 2, { 'SwitchCase': 1 }],
   }
 }

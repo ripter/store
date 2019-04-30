@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import { getValueAtPath } from './getValueAtPath.js';
 
 /**
  * A Store holds an object as it's internal state.
@@ -77,7 +77,7 @@ class Store {
   get(path, defaultValue) {
     const { _state } = this;
     if (!path) { return _state; }
-    return get(_state, path, defaultValue);
+    return getValueAtPath(_state, path, defaultValue);
   }
-};
+}
 export default Store;
