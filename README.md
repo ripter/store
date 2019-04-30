@@ -7,7 +7,7 @@ The idea of the store, is that the data/state is only changed in predictable and
 // Set the initial state, a Javascript Object
 // Then the reducers that make up the logic of how the state changes.
 // Finally a function to be called whenever the state changes.
-const store = new Store({initial: 'state'}, [
+const store = new Store({foo: 'bar'}, [
   reduceFunctions,
 ], onChange);
 
@@ -18,12 +18,28 @@ store.action({
 });
 
 // get the state
-const init = store.get('initial');
+// supports keypaths, like 'foo.bar[0]'
+const init = store.get('foo');
+
+// Write reducers
+function reducer(state, action, pushNextAction) {
+  if (action.type !== 'select') { return state; }
+
+  if (afterCurrentAction) {
+    pushNextAction({type: 'nextAction'});
+  }
+  return state;  
+}
 ```
 
 ## [API](https://ripter.github.io/store/)
 
-## Install
+## Install via CDN
+```
+  <script src="https://unpkg.com/@ripter/store@latest/dist/store-iife.js"></script>
+```
+
+## Install via NPM
 ```
 npm install --save @ripter/store
 ```
