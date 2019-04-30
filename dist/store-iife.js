@@ -91,4 +91,3 @@ var Store = (function () {
   return Store;
 
 }());
-//# sourceMappingURL=bundle.js.map

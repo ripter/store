@@ -3,12 +3,21 @@ import resolve from 'rollup-plugin-node-resolve';
 
 export default {
 	input: 'src/index.js',
-	output: {
+	output: [{
 		name: 'Store',
-		file: 'dist/bundle.js',
+		file: 'dist/store-iife.js',
 		format: 'iife',
-		sourcemap: true,
-	},
+	}, {
+		name: 'Store',
+		file: 'dist/store-umd.js',
+		format: 'umd'
+	}, {
+		file: 'dist/store-cjs.js',
+		format: 'cjs',
+	}, {
+		file: 'dist/store-es.js',
+		format: 'es',
+	}],
 	plugins: [
 		resolve(), // tells Rollup how to find libraries in node_modules
     // babel({

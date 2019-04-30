@@ -7,10 +7,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-  },
-  globals: {
-    anime: 'readonly',
-    lighterhtml: 'readonly',
+    mocha: true,
   },
   rules: {
     //
