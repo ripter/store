@@ -1,8 +1,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.Store = factory());
-}(this, function () { 'use strict';
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Store = factory());
+})(this, (function () { 'use strict';
 
   // from: https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_get
   const getValueAtPath = (obj, path, defaultValue = null) =>

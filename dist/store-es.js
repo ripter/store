@@ -85,4 +85,4 @@ class Store {
   }
 }
 
-export default Store;
+export { Store as default };
