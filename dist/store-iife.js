@@ -90,4 +90,4 @@ var Store = (function () {
 
   return Store;
 
-}());
+})();
